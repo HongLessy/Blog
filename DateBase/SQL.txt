@@ -1,0 +1,87 @@
+-------角色表---------
+CREATE TABLE role
+(
+	role_id int identity(1,1) primary key,
+	name nvarchar(50)
+)
+------登录用户表--------
+CREATE TABLE author
+(
+	author_id int identity (1,1) primary key,
+	username nvarchar (100) not null,
+	password nvarchar(50) not null,
+	role_id int references role(role_id),
+	islock char(1),
+)
+------博文类别----------
+CREATE TABLE blogtypes
+(
+	blogtype_id int identity (1,1) primary key,
+	name nvarchar(100) not null,
+	author_id int references author(author_id),
+)
+--------博文表---------
+CREATE TABLE blogentries
+(
+	blog_id int identity (1,1) primary key,
+	author_id int references author(author_id),
+	title nvarchar(100) not null,
+	description ntext,
+	type  nvarchar(10) not null,
+	allowcomment char(1) not null,
+	markprivate char(1) not null,
+	body ntext not null,
+	datecreated datetime default(getdate()),
+	datepublished datetime default(getdate()),
+	datemodified datetime default(getdate()),
+	islock char(1),
+	blogtype_id int references blogtypes(blogtype_id),
+)
+-----------评价表-------------
+CREATE TABLE comments
+(
+	comment_id int identity(1,1) primary key,
+	author nvarchar(50) not null,
+	blog_id int references blogentries(blog_id),
+	ip nvarchar(50) not null, 
+	datecreated datetime default(getdate()),
+	datemodified datetime default(getdate()),
+	body ntext not null,
+	islock char(1) not null,
+)
+----------日志表----------
+CREATE TABLE logs
+(
+	id int identity(1,1) primary key,
+	author_id int references author(author_id),
+	date datetime default(getdate()),
+	operatevent ntext not null,
+)
+--------文件上传---------------
+CREATE TABLE files
+(
+	id int identity(1,1) primary key,
+	filename nvarchar(250) not null,
+	mime nvarchar(50) not null,
+	filecontent varbinary(max),
+	author_id int references author(author_id),
+)
+------------模板风格--------------
+CREATE TABLE model
+(
+	model_id int identity(1,1) primary key,
+	name nvarchar(50) not null,
+	path nvarchar(250)
+)
+--------------个性化设置---------------
+CREATE TABLE personsettings
+(
+	id int identity(1,1) primary key,
+	author_id int references author(author_id),
+	blog_title nvarchar(500) not null,
+	model_id int references model(model_id),
+	description ntext not null,
+	blog_path nvarchar(200) not null,
+	rss_size int default(10) not null,
+	max_uploadfile int not null,
+)
