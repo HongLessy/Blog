@@ -7,8 +7,8 @@
     <ProjectGuid>{584DBED9-2741-4988-BD88-A869831AF11F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>IDAL</RootNamespace>
-    <AssemblyName>IDAL</AssemblyName>
+    <RootNamespace>Blog.IDAL</RootNamespace>
+    <AssemblyName>Blog.IDAL</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -39,8 +39,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="iAuthor.cs" />
+    <Compile Include="iBlogentrie.cs" />
+    <Compile Include="iBlogtype.cs" />
+    <Compile Include="iComment.cs" />
+    <Compile Include="iFile.cs" />
+    <Compile Include="iLog.cs" />
+    <Compile Include="iModel.cs" />
+    <Compile Include="iPersonsetting.cs" />
+    <Compile Include="iRole.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Modle\Model.csproj">
+      <Project>{8f50d6a5-8dea-4462-966a-afdeb54f989c}</Project>
+      <Name>Model</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

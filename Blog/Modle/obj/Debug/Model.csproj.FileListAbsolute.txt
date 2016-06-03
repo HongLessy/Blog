@@ -1,0 +1,4 @@
+E:\ASP.NET\Blog\Blog\Modle\bin\Debug\Blog.Modle.dll
+E:\ASP.NET\Blog\Blog\Modle\bin\Debug\Blog.Modle.pdb
+E:\ASP.NET\Blog\Blog\Modle\obj\Debug\Blog.Modle.dll
+E:\ASP.NET\Blog\Blog\Modle\obj\Debug\Blog.Modle.pdb

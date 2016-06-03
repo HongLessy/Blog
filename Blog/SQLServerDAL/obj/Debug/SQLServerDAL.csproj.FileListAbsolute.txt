@@ -1,0 +1,11 @@
+E:\ASP.NET\Blog\Blog\SQLServerDAL\obj\Debug\SQLServerDAL.csprojResolveAssemblyReference.cache
+E:\ASP.NET\Blog\Blog\SQLServerDAL\bin\Debug\Blog.DButility.dll
+E:\ASP.NET\Blog\Blog\SQLServerDAL\bin\Debug\Blog.IDAL.dll
+E:\ASP.NET\Blog\Blog\SQLServerDAL\bin\Debug\Blog.Modle.dll
+E:\ASP.NET\Blog\Blog\SQLServerDAL\bin\Debug\Blog.DButility.pdb
+E:\ASP.NET\Blog\Blog\SQLServerDAL\bin\Debug\Blog.IDAL.pdb
+E:\ASP.NET\Blog\Blog\SQLServerDAL\bin\Debug\Blog.Modle.pdb
+E:\ASP.NET\Blog\Blog\SQLServerDAL\bin\Debug\Blog.SQLServerDAL.dll
+E:\ASP.NET\Blog\Blog\SQLServerDAL\bin\Debug\Blog.SQLServerDAL.pdb
+E:\ASP.NET\Blog\Blog\SQLServerDAL\obj\Debug\Blog.SQLServerDAL.dll
+E:\ASP.NET\Blog\Blog\SQLServerDAL\obj\Debug\Blog.SQLServerDAL.pdb
