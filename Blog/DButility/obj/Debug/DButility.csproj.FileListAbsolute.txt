@@ -1,4 +1,0 @@
-E:\ASP.NET\Blog\Blog\DButility\bin\Debug\Blog.DButility.dll
-E:\ASP.NET\Blog\Blog\DButility\bin\Debug\Blog.DButility.pdb
-E:\ASP.NET\Blog\Blog\DButility\obj\Debug\Blog.DButility.dll
-E:\ASP.NET\Blog\Blog\DButility\obj\Debug\Blog.DButility.pdb

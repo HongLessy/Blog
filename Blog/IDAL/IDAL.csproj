@@ -39,15 +39,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="iAuthor.cs" />
-    <Compile Include="iBlogentrie.cs" />
-    <Compile Include="iBlogtype.cs" />
-    <Compile Include="iComment.cs" />
-    <Compile Include="iFile.cs" />
-    <Compile Include="iLog.cs" />
-    <Compile Include="iModel.cs" />
-    <Compile Include="iPersonsetting.cs" />
-    <Compile Include="iRole.cs" />
+    <Compile Include="IAuthor.cs" />
+    <Compile Include="IBlogentrie.cs" />
+    <Compile Include="IBlogtype.cs" />
+    <Compile Include="IBlog_Tag.cs" />
+    <Compile Include="IComment.cs" />
+    <Compile Include="IFile.cs" />
+    <Compile Include="ILog.cs" />
+    <Compile Include="IModel.cs" />
+    <Compile Include="IPersonsetting.cs" />
+    <Compile Include="IRole.cs" />
+    <Compile Include="ITag.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

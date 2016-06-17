@@ -1,0 +1,44 @@
+﻿<%@ Master Language="C#" Inherits="System.Web.Mvc.ViewMasterPage" %>
+<%@ Import Namespace="UI.App_Code" %>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <link rel="stylesheet" type="text/css" href="../../Content/Site.css" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <asp:ContentPlaceHolder ID="TitleContent" runat="server">      
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div id="outer">
+            <div id="upbg"></div>
+            <div id="inner">
+                <div id="header">
+                    <h1>HonLessy Blog</h1>
+                </div>
+                <div id="splash">
+
+                </div>
+                <div id="menu">
+                    <%= Html.Menu()%>
+                </div>
+                <div id="primarycontent">
+                    <!-- 左显示数据主题部分k开始 -->
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolderPrimary" runat="server"></asp:ContentPlaceHolder>
+                    <!-- 左显示数据主题部分结束 -->
+                </div>
+                <div id="secondarycontent">
+                    <!-- 右列表数据主题部分开始 -->
+                    <asp:ContentPlaceHolder ID="ContentPlaceHoldersecondary" runat="server"></asp:ContentPlaceHolder>
+                    <!-- 右列表数据主题部分结束 -->
+                </div>
+                <div id="footer">
+                    HonLessy  Blog <a href="#">基于asp.net技术多用户博客系统</a><br />
+                </div>
+            </div>
+        </div>
+    </form>
+</body>
+</html>

@@ -7,8 +7,8 @@
     <ProjectGuid>{FEE8A434-EC86-4BA5-80F7-FA11680DED8E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DALFactory</RootNamespace>
-    <AssemblyName>DALFactory</AssemblyName>
+    <RootNamespace>Blog.DALFactory</RootNamespace>
+    <AssemblyName>Blog.DALFactory</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -31,6 +31,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -39,8 +40,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="DataAccess.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AccessDAL\AccessDAL.csproj">
+      <Project>{efae843d-93af-46f2-85a8-44112e58d4c5}</Project>
+      <Name>AccessDAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DButility\DBUtility.csproj">
+      <Project>{02d72567-2434-419b-a556-39c4f6f3933a}</Project>
+      <Name>DBUtility</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IDAL\IDAL.csproj">
+      <Project>{584dbed9-2741-4988-bd88-a869831af11f}</Project>
+      <Name>IDAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Modle\Model.csproj">
+      <Project>{8f50d6a5-8dea-4462-966a-afdeb54f989c}</Project>
+      <Name>Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SQLServerDAL\SQLServerDAL.csproj">
+      <Project>{3d19dcef-8efe-4cc1-8651-76747c5eec15}</Project>
+      <Name>SQLServerDAL</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

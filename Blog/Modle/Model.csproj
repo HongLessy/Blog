@@ -42,13 +42,16 @@
     <Compile Include="Author.cs" />
     <Compile Include="Blogentrie.cs" />
     <Compile Include="Blogtype.cs" />
+    <Compile Include="Blog_Tag.cs" />
     <Compile Include="Comment.cs" />
     <Compile Include="File.cs" />
     <Compile Include="Log.cs" />
     <Compile Include="Model.cs" />
+    <Compile Include="Month.cs" />
     <Compile Include="Personsetting.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Role.cs" />
+    <Compile Include="Tag.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

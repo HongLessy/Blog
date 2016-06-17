@@ -108,6 +108,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Code\MenuHelp.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -117,7 +119,30 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Content Include="Content\Images\a1.gif" />
+    <Content Include="Content\Images\a10.jpg" />
+    <Content Include="Content\Images\a16.gif" />
+    <Content Include="Content\Images\a18.gif" />
+    <Content Include="Content\Images\a22.gif" />
+    <Content Include="Content\Images\a26.gif" />
+    <Content Include="Content\Images\a33.gif" />
+    <Content Include="Content\Images\a36.gif" />
+    <Content Include="Content\Images\a37.gif" />
+    <Content Include="Content\Images\a38.gif" />
+    <Content Include="Content\Images\a41.gif" />
+    <Content Include="Content\Images\a47.gif" />
+    <Content Include="Content\Images\a48.gif" />
+    <Content Include="Content\Images\a50.gif" />
+    <Content Include="Content\Images\a8.gif" />
+    <Content Include="Content\Images\abg.gif" />
+    <Content Include="Content\Images\pic1.jpg" />
+    <Content Include="Content\Images\pic2.jpg" />
+    <Content Include="Content\Images\spacer.gif" />
+    <Content Include="Content\Images\upbg.gif" />
+    <Content Include="Content\Site.css" />
     <Content Include="Global.asax" />
+    <Content Include="Views\Home\index.aspx" />
+    <Content Include="Views\Home\View1.aspx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -128,12 +153,33 @@
     <Content Include="Views\Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="App_Bin\" />
     <Folder Include="App_Data\" />
-    <Folder Include="Controllers\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Web.sitemap" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Share\Site.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\Images\Thumbs.db" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Share\Page.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Modle\Model.csproj">
+      <Project>{8f50d6a5-8dea-4462-966a-afdeb54f989c}</Project>
+      <Name>Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Share\Admin.Master" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
