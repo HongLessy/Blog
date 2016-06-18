@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UI.Tests", "UI.Tests\UI.Tes
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model", "Modle\Model.csproj", "{8F50D6A5-8DEA-4462-966A-AFDEB54F989C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GridViewHelper", "GridViewHelp\GridViewHelper.csproj", "{4E701BD8-CC30-4BB3-9F8B-AEF36BC53A5B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +65,10 @@ Global
 		{8F50D6A5-8DEA-4462-966A-AFDEB54F989C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8F50D6A5-8DEA-4462-966A-AFDEB54F989C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8F50D6A5-8DEA-4462-966A-AFDEB54F989C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4E701BD8-CC30-4BB3-9F8B-AEF36BC53A5B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E701BD8-CC30-4BB3-9F8B-AEF36BC53A5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E701BD8-CC30-4BB3-9F8B-AEF36BC53A5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E701BD8-CC30-4BB3-9F8B-AEF36BC53A5B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
