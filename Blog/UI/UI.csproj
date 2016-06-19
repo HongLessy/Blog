@@ -173,6 +173,10 @@
     <Content Include="Views\Share\Page.Master" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\GridViewHelp\GridViewHelper.csproj">
+      <Project>{4e701bd8-cc30-4bb3-9f8b-aef36bc53a5b}</Project>
+      <Name>GridViewHelper</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Modle\Model.csproj">
       <Project>{8f50d6a5-8dea-4462-966a-afdeb54f989c}</Project>
       <Name>Model</Name>

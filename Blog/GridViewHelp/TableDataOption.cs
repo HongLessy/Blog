@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GridViewHelp
+namespace GridViewHelper
 {
     /// <summary>
     /// 定义表格数据显示的内容
@@ -12,12 +12,12 @@ namespace GridViewHelp
     public class TableDataOption
     {
         //是否显示编辑按钮
-        private bool showEitButton = true;
+        private bool showEditButton = true;
 
-        public bool ShowEitButton
+        public bool ShowEditButton
         {
-            get { return showEitButton; }
-            set { showEitButton = value; }
+            get { return showEditButton; }
+            set { showEditButton = value; }
         }
         //是否显示删除按钮
         private bool showDeleteButton = true;
@@ -60,12 +60,12 @@ namespace GridViewHelp
             set { deleteAction = value; }
         }
         //表格数据显示的标头
-        private string[] columus;
+        private string[] columns;
 
-        public string[] Columus
+        public string[] Columns
         {
-            get { return columus; }
-            set { columus = value; }
+            get { return columns; }
+            set { columns = value; }
         }
     }
 }

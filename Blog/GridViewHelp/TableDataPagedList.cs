@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GridViewHelp
+namespace GridViewHelper
 {
     /// <summary>
     /// 考虑分页的数据源控制

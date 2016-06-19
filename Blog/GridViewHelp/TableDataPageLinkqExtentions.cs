@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GridViewHelp
+namespace GridViewHelper
 {
     /// <summary>
     /// 拓展方法，目标位HtmlHelper对象添加表数据显示的方法
