@@ -1,0 +1,1 @@
+E:\ASP.NET\Blog\Blog\UI.Tests\obj\Debug\UI.Tests.csprojResolveAssemblyReference.cache

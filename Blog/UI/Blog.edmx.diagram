@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="5ac3fffcec674f82a0439dfb355af341" Name="Diagram1">
+        <EntityTypeShape EntityType="BlogModel.Author" Width="1.5" PointX="3" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BlogModel.Blog_Tags" Width="1.5" PointX="9.75" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BlogModel.Blogentries" Width="1.5" PointX="7.5" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BlogModel.Blogtypes" Width="1.5" PointX="5.25" PointY="11.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BlogModel.Comments" Width="1.5" PointX="9.75" PointY="12.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BlogModel.Files" Width="1.5" PointX="5.25" PointY="14.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BlogModel.Logs" Width="1.5" PointX="5.25" PointY="17.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BlogModel.Model" Width="1.5" PointX="3" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BlogModel.Personsettings" Width="1.5" PointX="5.25" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="BlogModel.Role" Width="1.5" PointX="0.75" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BlogModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BlogModel.Tags" Width="1.5" PointX="7.5" PointY="6.375" IsExpanded="true" />
+        <AssociationConnector Association="BlogModel.FK__author__role_id__1273C1CD" ManuallyRouted="false" />
+        <AssociationConnector Association="BlogModel.FK__blogentri__autho__1920BF5C" ManuallyRouted="false" />
+        <AssociationConnector Association="BlogModel.FK__blogtypes__autho__164452B1" ManuallyRouted="false" />
+        <AssociationConnector Association="BlogModel.FK__files__author_id__286302EC" ManuallyRouted="false" />
+        <AssociationConnector Association="BlogModel.FK__logs__author_id__24927208" ManuallyRouted="false" />
+        <AssociationConnector Association="BlogModel.FK__personset__autho__2D27B809" ManuallyRouted="false" />
+        <AssociationConnector Association="BlogModel.FK_Blog_Tags_Blogentries" ManuallyRouted="false" />
+        <AssociationConnector Association="BlogModel.FK_Blog_Tags_Tags" ManuallyRouted="false" />
+        <AssociationConnector Association="BlogModel.FK__blogentri__blogt__1CF15040" ManuallyRouted="false" />
+        <AssociationConnector Association="BlogModel.FK__comments__blog_i__1FCDBCEB" ManuallyRouted="false" />
+        <AssociationConnector Association="BlogModel.FK__personset__model__2E1BDC42" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

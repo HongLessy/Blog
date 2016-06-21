@@ -2,3 +2,4 @@ E:\ASP.NET\Blog\Blog\GridViewHelp\bin\Debug\GridViewHelp.dll
 E:\ASP.NET\Blog\Blog\GridViewHelp\bin\Debug\GridViewHelp.pdb
 E:\ASP.NET\Blog\Blog\GridViewHelp\obj\Debug\GridViewHelp.dll
 E:\ASP.NET\Blog\Blog\GridViewHelp\obj\Debug\GridViewHelp.pdb
+E:\ASP.NET\Blog\Blog\GridViewHelp\obj\Debug\GridViewHelper.csprojResolveAssemblyReference.cache

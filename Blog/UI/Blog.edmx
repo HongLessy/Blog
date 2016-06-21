@@ -1,0 +1,822 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="BlogModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Author">
+          <Key>
+            <PropertyRef Name="author_id" />
+          </Key>
+          <Property Name="author_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="username" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="password" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="role_id" Type="int" Nullable="false" />
+          <Property Name="islock" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="email" Type="nchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="Blog_Tags">
+          <Key>
+            <PropertyRef Name="blog_tag_id" />
+          </Key>
+          <Property Name="blog_tag_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tag_id" Type="int" Nullable="false" />
+          <Property Name="blog_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Blogentries">
+          <Key>
+            <PropertyRef Name="blog_id" />
+          </Key>
+          <Property Name="blog_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="author_id" Type="int" />
+          <Property Name="title" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="description" Type="ntext" />
+          <Property Name="type" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="allowcomment" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="markprivate" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="body" Type="ntext" Nullable="false" />
+          <Property Name="datecreated" Type="datetime" />
+          <Property Name="datepublished" Type="datetime" />
+          <Property Name="datemodified" Type="datetime" />
+          <Property Name="islock" Type="char" MaxLength="1" />
+          <Property Name="blogtype_id" Type="int" />
+        </EntityType>
+        <EntityType Name="Blogtypes">
+          <Key>
+            <PropertyRef Name="blogtype_id" />
+          </Key>
+          <Property Name="blogtype_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="author_id" Type="int" />
+        </EntityType>
+        <EntityType Name="Comments">
+          <Key>
+            <PropertyRef Name="comment_id" />
+          </Key>
+          <Property Name="comment_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="author" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="blog_id" Type="int" />
+          <Property Name="ip" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="datecreated" Type="datetime" />
+          <Property Name="datemodified" Type="datetime" />
+          <Property Name="body" Type="ntext" Nullable="false" />
+          <Property Name="islock" Type="char" MaxLength="1" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Files">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="filename" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="mime" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="filecontent" Type="varbinary(max)" />
+          <Property Name="author_id" Type="int" />
+        </EntityType>
+        <EntityType Name="Logs">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="author_id" Type="int" />
+          <Property Name="date" Type="datetime" />
+          <Property Name="operatevent" Type="ntext" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Model">
+          <Key>
+            <PropertyRef Name="model_id" />
+          </Key>
+          <Property Name="model_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="path" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="Personsettings">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="author_id" Type="int" />
+          <Property Name="blog_title" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="model_id" Type="int" />
+          <Property Name="description" Type="ntext" Nullable="false" />
+          <Property Name="blog_path" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="rss_size" Type="int" Nullable="false" />
+          <Property Name="max_uploadfile" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="role_id" />
+          </Key>
+          <Property Name="role_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Tags">
+          <Key>
+            <PropertyRef Name="tag_id" />
+          </Key>
+          <Property Name="tag_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tagName" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <Association Name="FK__author__role_id__1273C1CD">
+          <End Role="Role" Type="Self.Role" Multiplicity="1" />
+          <End Role="Author" Type="Self.Author" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="role_id" />
+            </Principal>
+            <Dependent Role="Author">
+              <PropertyRef Name="role_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__blogentri__autho__1920BF5C">
+          <End Role="Author" Type="Self.Author" Multiplicity="0..1" />
+          <End Role="Blogentries" Type="Self.Blogentries" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Author">
+              <PropertyRef Name="author_id" />
+            </Principal>
+            <Dependent Role="Blogentries">
+              <PropertyRef Name="author_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__blogentri__blogt__1CF15040">
+          <End Role="Blogtypes" Type="Self.Blogtypes" Multiplicity="0..1" />
+          <End Role="Blogentries" Type="Self.Blogentries" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Blogtypes">
+              <PropertyRef Name="blogtype_id" />
+            </Principal>
+            <Dependent Role="Blogentries">
+              <PropertyRef Name="blogtype_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__blogtypes__autho__164452B1">
+          <End Role="Author" Type="Self.Author" Multiplicity="0..1" />
+          <End Role="Blogtypes" Type="Self.Blogtypes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Author">
+              <PropertyRef Name="author_id" />
+            </Principal>
+            <Dependent Role="Blogtypes">
+              <PropertyRef Name="author_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__comments__blog_i__1FCDBCEB">
+          <End Role="Blogentries" Type="Self.Blogentries" Multiplicity="0..1" />
+          <End Role="Comments" Type="Self.Comments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Blogentries">
+              <PropertyRef Name="blog_id" />
+            </Principal>
+            <Dependent Role="Comments">
+              <PropertyRef Name="blog_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__files__author_id__286302EC">
+          <End Role="Author" Type="Self.Author" Multiplicity="0..1" />
+          <End Role="Files" Type="Self.Files" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Author">
+              <PropertyRef Name="author_id" />
+            </Principal>
+            <Dependent Role="Files">
+              <PropertyRef Name="author_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__logs__author_id__24927208">
+          <End Role="Author" Type="Self.Author" Multiplicity="0..1" />
+          <End Role="Logs" Type="Self.Logs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Author">
+              <PropertyRef Name="author_id" />
+            </Principal>
+            <Dependent Role="Logs">
+              <PropertyRef Name="author_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__personset__autho__2D27B809">
+          <End Role="Author" Type="Self.Author" Multiplicity="0..1" />
+          <End Role="Personsettings" Type="Self.Personsettings" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Author">
+              <PropertyRef Name="author_id" />
+            </Principal>
+            <Dependent Role="Personsettings">
+              <PropertyRef Name="author_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__personset__model__2E1BDC42">
+          <End Role="Model" Type="Self.Model" Multiplicity="0..1" />
+          <End Role="Personsettings" Type="Self.Personsettings" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Model">
+              <PropertyRef Name="model_id" />
+            </Principal>
+            <Dependent Role="Personsettings">
+              <PropertyRef Name="model_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Blog_Tags_Blogentries">
+          <End Role="Blogentries" Type="Self.Blogentries" Multiplicity="1" />
+          <End Role="Blog_Tags" Type="Self.Blog_Tags" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Blogentries">
+              <PropertyRef Name="blog_id" />
+            </Principal>
+            <Dependent Role="Blog_Tags">
+              <PropertyRef Name="blog_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Blog_Tags_Tags">
+          <End Role="Tags" Type="Self.Tags" Multiplicity="1" />
+          <End Role="Blog_Tags" Type="Self.Blog_Tags" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tags">
+              <PropertyRef Name="tag_id" />
+            </Principal>
+            <Dependent Role="Blog_Tags">
+              <PropertyRef Name="tag_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="BlogModelStoreContainer">
+          <EntitySet Name="Author" EntityType="Self.Author" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Blog_Tags" EntityType="Self.Blog_Tags" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Blogentries" EntityType="Self.Blogentries" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Blogtypes" EntityType="Self.Blogtypes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Comments" EntityType="Self.Comments" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Files" EntityType="Self.Files" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Logs" EntityType="Self.Logs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Model" EntityType="Self.Model" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Personsettings" EntityType="Self.Personsettings" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tags" EntityType="Self.Tags" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__author__role_id__1273C1CD" Association="Self.FK__author__role_id__1273C1CD">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="Author" EntitySet="Author" />
+          </AssociationSet>
+          <AssociationSet Name="FK__blogentri__autho__1920BF5C" Association="Self.FK__blogentri__autho__1920BF5C">
+            <End Role="Author" EntitySet="Author" />
+            <End Role="Blogentries" EntitySet="Blogentries" />
+          </AssociationSet>
+          <AssociationSet Name="FK__blogentri__blogt__1CF15040" Association="Self.FK__blogentri__blogt__1CF15040">
+            <End Role="Blogtypes" EntitySet="Blogtypes" />
+            <End Role="Blogentries" EntitySet="Blogentries" />
+          </AssociationSet>
+          <AssociationSet Name="FK__blogtypes__autho__164452B1" Association="Self.FK__blogtypes__autho__164452B1">
+            <End Role="Author" EntitySet="Author" />
+            <End Role="Blogtypes" EntitySet="Blogtypes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__comments__blog_i__1FCDBCEB" Association="Self.FK__comments__blog_i__1FCDBCEB">
+            <End Role="Blogentries" EntitySet="Blogentries" />
+            <End Role="Comments" EntitySet="Comments" />
+          </AssociationSet>
+          <AssociationSet Name="FK__files__author_id__286302EC" Association="Self.FK__files__author_id__286302EC">
+            <End Role="Author" EntitySet="Author" />
+            <End Role="Files" EntitySet="Files" />
+          </AssociationSet>
+          <AssociationSet Name="FK__logs__author_id__24927208" Association="Self.FK__logs__author_id__24927208">
+            <End Role="Author" EntitySet="Author" />
+            <End Role="Logs" EntitySet="Logs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__personset__autho__2D27B809" Association="Self.FK__personset__autho__2D27B809">
+            <End Role="Author" EntitySet="Author" />
+            <End Role="Personsettings" EntitySet="Personsettings" />
+          </AssociationSet>
+          <AssociationSet Name="FK__personset__model__2E1BDC42" Association="Self.FK__personset__model__2E1BDC42">
+            <End Role="Model" EntitySet="Model" />
+            <End Role="Personsettings" EntitySet="Personsettings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Blog_Tags_Blogentries" Association="Self.FK_Blog_Tags_Blogentries">
+            <End Role="Blogentries" EntitySet="Blogentries" />
+            <End Role="Blog_Tags" EntitySet="Blog_Tags" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Blog_Tags_Tags" Association="Self.FK_Blog_Tags_Tags">
+            <End Role="Tags" EntitySet="Tags" />
+            <End Role="Blog_Tags" EntitySet="Blog_Tags" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BlogModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Author">
+          <Key>
+            <PropertyRef Name="author_id" />
+          </Key>
+          <Property Name="author_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="username" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="role_id" Type="Int32" Nullable="false" />
+          <Property Name="islock" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="Role" Relationship="Self.FK__author__role_id__1273C1CD" FromRole="Author" ToRole="Role" />
+          <NavigationProperty Name="Blogentries" Relationship="Self.FK__blogentri__autho__1920BF5C" FromRole="Author" ToRole="Blogentries" />
+          <NavigationProperty Name="Blogtypes" Relationship="Self.FK__blogtypes__autho__164452B1" FromRole="Author" ToRole="Blogtypes" />
+          <NavigationProperty Name="Files" Relationship="Self.FK__files__author_id__286302EC" FromRole="Author" ToRole="Files" />
+          <NavigationProperty Name="Logs" Relationship="Self.FK__logs__author_id__24927208" FromRole="Author" ToRole="Logs" />
+          <NavigationProperty Name="Personsettings" Relationship="Self.FK__personset__autho__2D27B809" FromRole="Author" ToRole="Personsettings" />
+        </EntityType>
+        <EntityType Name="Blog_Tags">
+          <Key>
+            <PropertyRef Name="blog_tag_id" />
+          </Key>
+          <Property Name="blog_tag_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tag_id" Type="Int32" Nullable="false" />
+          <Property Name="blog_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Blogentries" Relationship="Self.FK_Blog_Tags_Blogentries" FromRole="Blog_Tags" ToRole="Blogentries" />
+          <NavigationProperty Name="Tags" Relationship="Self.FK_Blog_Tags_Tags" FromRole="Blog_Tags" ToRole="Tags" />
+        </EntityType>
+        <EntityType Name="Blogentries">
+          <Key>
+            <PropertyRef Name="blog_id" />
+          </Key>
+          <Property Name="blog_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="author_id" Type="Int32" />
+          <Property Name="title" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="type" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="allowcomment" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="markprivate" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="body" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="datecreated" Type="DateTime" Precision="3" />
+          <Property Name="datepublished" Type="DateTime" Precision="3" />
+          <Property Name="datemodified" Type="DateTime" Precision="3" />
+          <Property Name="islock" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="blogtype_id" Type="Int32" />
+          <NavigationProperty Name="Author" Relationship="Self.FK__blogentri__autho__1920BF5C" FromRole="Blogentries" ToRole="Author" />
+          <NavigationProperty Name="Blog_Tags" Relationship="Self.FK_Blog_Tags_Blogentries" FromRole="Blogentries" ToRole="Blog_Tags" />
+          <NavigationProperty Name="Blogtypes" Relationship="Self.FK__blogentri__blogt__1CF15040" FromRole="Blogentries" ToRole="Blogtypes" />
+          <NavigationProperty Name="Comments" Relationship="Self.FK__comments__blog_i__1FCDBCEB" FromRole="Blogentries" ToRole="Comments" />
+        </EntityType>
+        <EntityType Name="Blogtypes">
+          <Key>
+            <PropertyRef Name="blogtype_id" />
+          </Key>
+          <Property Name="blogtype_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="author_id" Type="Int32" />
+          <NavigationProperty Name="Author" Relationship="Self.FK__blogtypes__autho__164452B1" FromRole="Blogtypes" ToRole="Author" />
+          <NavigationProperty Name="Blogentries" Relationship="Self.FK__blogentri__blogt__1CF15040" FromRole="Blogtypes" ToRole="Blogentries" />
+        </EntityType>
+        <EntityType Name="Comments">
+          <Key>
+            <PropertyRef Name="comment_id" />
+          </Key>
+          <Property Name="comment_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="author" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="blog_id" Type="Int32" />
+          <Property Name="ip" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="datecreated" Type="DateTime" Precision="3" />
+          <Property Name="datemodified" Type="DateTime" Precision="3" />
+          <Property Name="body" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="islock" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Blogentries" Relationship="Self.FK__comments__blog_i__1FCDBCEB" FromRole="Comments" ToRole="Blogentries" />
+        </EntityType>
+        <EntityType Name="Files">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="filename" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="mime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="filecontent" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="author_id" Type="Int32" />
+          <NavigationProperty Name="Author" Relationship="Self.FK__files__author_id__286302EC" FromRole="Files" ToRole="Author" />
+        </EntityType>
+        <EntityType Name="Logs">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="author_id" Type="Int32" />
+          <Property Name="date" Type="DateTime" Precision="3" />
+          <Property Name="operatevent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Author" Relationship="Self.FK__logs__author_id__24927208" FromRole="Logs" ToRole="Author" />
+        </EntityType>
+        <EntityType Name="Model">
+          <Key>
+            <PropertyRef Name="model_id" />
+          </Key>
+          <Property Name="model_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="path" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Personsettings" Relationship="Self.FK__personset__model__2E1BDC42" FromRole="Model" ToRole="Personsettings" />
+        </EntityType>
+        <EntityType Name="Personsettings">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="author_id" Type="Int32" />
+          <Property Name="blog_title" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="model_id" Type="Int32" />
+          <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="blog_path" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="rss_size" Type="Int32" Nullable="false" />
+          <Property Name="max_uploadfile" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Author" Relationship="Self.FK__personset__autho__2D27B809" FromRole="Personsettings" ToRole="Author" />
+          <NavigationProperty Name="Model" Relationship="Self.FK__personset__model__2E1BDC42" FromRole="Personsettings" ToRole="Model" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="role_id" />
+          </Key>
+          <Property Name="role_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Author" Relationship="Self.FK__author__role_id__1273C1CD" FromRole="Role" ToRole="Author" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Tags">
+          <Key>
+            <PropertyRef Name="tag_id" />
+          </Key>
+          <Property Name="tag_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tagName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Blog_Tags" Relationship="Self.FK_Blog_Tags_Tags" FromRole="Tags" ToRole="Blog_Tags" />
+        </EntityType>
+        <Association Name="FK__author__role_id__1273C1CD">
+          <End Role="Role" Type="Self.Role" Multiplicity="1" />
+          <End Role="Author" Type="Self.Author" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="role_id" />
+            </Principal>
+            <Dependent Role="Author">
+              <PropertyRef Name="role_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__blogentri__autho__1920BF5C">
+          <End Role="Author" Type="Self.Author" Multiplicity="0..1" />
+          <End Role="Blogentries" Type="Self.Blogentries" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Author">
+              <PropertyRef Name="author_id" />
+            </Principal>
+            <Dependent Role="Blogentries">
+              <PropertyRef Name="author_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__blogtypes__autho__164452B1">
+          <End Role="Author" Type="Self.Author" Multiplicity="0..1" />
+          <End Role="Blogtypes" Type="Self.Blogtypes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Author">
+              <PropertyRef Name="author_id" />
+            </Principal>
+            <Dependent Role="Blogtypes">
+              <PropertyRef Name="author_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__files__author_id__286302EC">
+          <End Role="Author" Type="Self.Author" Multiplicity="0..1" />
+          <End Role="Files" Type="Self.Files" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Author">
+              <PropertyRef Name="author_id" />
+            </Principal>
+            <Dependent Role="Files">
+              <PropertyRef Name="author_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__logs__author_id__24927208">
+          <End Role="Author" Type="Self.Author" Multiplicity="0..1" />
+          <End Role="Logs" Type="Self.Logs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Author">
+              <PropertyRef Name="author_id" />
+            </Principal>
+            <Dependent Role="Logs">
+              <PropertyRef Name="author_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__personset__autho__2D27B809">
+          <End Role="Author" Type="Self.Author" Multiplicity="0..1" />
+          <End Role="Personsettings" Type="Self.Personsettings" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Author">
+              <PropertyRef Name="author_id" />
+            </Principal>
+            <Dependent Role="Personsettings">
+              <PropertyRef Name="author_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Blog_Tags_Blogentries">
+          <End Role="Blogentries" Type="Self.Blogentries" Multiplicity="1" />
+          <End Role="Blog_Tags" Type="Self.Blog_Tags" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Blogentries">
+              <PropertyRef Name="blog_id" />
+            </Principal>
+            <Dependent Role="Blog_Tags">
+              <PropertyRef Name="blog_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Blog_Tags_Tags">
+          <End Role="Tags" Type="Self.Tags" Multiplicity="1" />
+          <End Role="Blog_Tags" Type="Self.Blog_Tags" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tags">
+              <PropertyRef Name="tag_id" />
+            </Principal>
+            <Dependent Role="Blog_Tags">
+              <PropertyRef Name="tag_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__blogentri__blogt__1CF15040">
+          <End Role="Blogtypes" Type="Self.Blogtypes" Multiplicity="0..1" />
+          <End Role="Blogentries" Type="Self.Blogentries" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Blogtypes">
+              <PropertyRef Name="blogtype_id" />
+            </Principal>
+            <Dependent Role="Blogentries">
+              <PropertyRef Name="blogtype_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__comments__blog_i__1FCDBCEB">
+          <End Role="Blogentries" Type="Self.Blogentries" Multiplicity="0..1" />
+          <End Role="Comments" Type="Self.Comments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Blogentries">
+              <PropertyRef Name="blog_id" />
+            </Principal>
+            <Dependent Role="Comments">
+              <PropertyRef Name="blog_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__personset__model__2E1BDC42">
+          <End Role="Model" Type="Self.Model" Multiplicity="0..1" />
+          <End Role="Personsettings" Type="Self.Personsettings" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Model">
+              <PropertyRef Name="model_id" />
+            </Principal>
+            <Dependent Role="Personsettings">
+              <PropertyRef Name="model_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="BlogEntities2" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Author" EntityType="Self.Author" />
+          <EntitySet Name="Blog_Tags" EntityType="Self.Blog_Tags" />
+          <EntitySet Name="Blogentries" EntityType="Self.Blogentries" />
+          <EntitySet Name="Blogtypes" EntityType="Self.Blogtypes" />
+          <EntitySet Name="Comments" EntityType="Self.Comments" />
+          <EntitySet Name="Files" EntityType="Self.Files" />
+          <EntitySet Name="Logs" EntityType="Self.Logs" />
+          <EntitySet Name="Model" EntityType="Self.Model" />
+          <EntitySet Name="Personsettings" EntityType="Self.Personsettings" />
+          <EntitySet Name="Role" EntityType="Self.Role" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="Tags" EntityType="Self.Tags" />
+          <AssociationSet Name="FK__author__role_id__1273C1CD" Association="Self.FK__author__role_id__1273C1CD">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="Author" EntitySet="Author" />
+          </AssociationSet>
+          <AssociationSet Name="FK__blogentri__autho__1920BF5C" Association="Self.FK__blogentri__autho__1920BF5C">
+            <End Role="Author" EntitySet="Author" />
+            <End Role="Blogentries" EntitySet="Blogentries" />
+          </AssociationSet>
+          <AssociationSet Name="FK__blogtypes__autho__164452B1" Association="Self.FK__blogtypes__autho__164452B1">
+            <End Role="Author" EntitySet="Author" />
+            <End Role="Blogtypes" EntitySet="Blogtypes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__files__author_id__286302EC" Association="Self.FK__files__author_id__286302EC">
+            <End Role="Author" EntitySet="Author" />
+            <End Role="Files" EntitySet="Files" />
+          </AssociationSet>
+          <AssociationSet Name="FK__logs__author_id__24927208" Association="Self.FK__logs__author_id__24927208">
+            <End Role="Author" EntitySet="Author" />
+            <End Role="Logs" EntitySet="Logs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__personset__autho__2D27B809" Association="Self.FK__personset__autho__2D27B809">
+            <End Role="Author" EntitySet="Author" />
+            <End Role="Personsettings" EntitySet="Personsettings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Blog_Tags_Blogentries" Association="Self.FK_Blog_Tags_Blogentries">
+            <End Role="Blogentries" EntitySet="Blogentries" />
+            <End Role="Blog_Tags" EntitySet="Blog_Tags" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Blog_Tags_Tags" Association="Self.FK_Blog_Tags_Tags">
+            <End Role="Tags" EntitySet="Tags" />
+            <End Role="Blog_Tags" EntitySet="Blog_Tags" />
+          </AssociationSet>
+          <AssociationSet Name="FK__blogentri__blogt__1CF15040" Association="Self.FK__blogentri__blogt__1CF15040">
+            <End Role="Blogtypes" EntitySet="Blogtypes" />
+            <End Role="Blogentries" EntitySet="Blogentries" />
+          </AssociationSet>
+          <AssociationSet Name="FK__comments__blog_i__1FCDBCEB" Association="Self.FK__comments__blog_i__1FCDBCEB">
+            <End Role="Blogentries" EntitySet="Blogentries" />
+            <End Role="Comments" EntitySet="Comments" />
+          </AssociationSet>
+          <AssociationSet Name="FK__personset__model__2E1BDC42" Association="Self.FK__personset__model__2E1BDC42">
+            <End Role="Model" EntitySet="Model" />
+            <End Role="Personsettings" EntitySet="Personsettings" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BlogModelStoreContainer" CdmEntityContainer="BlogEntities2">
+          <EntitySetMapping Name="Author">
+            <EntityTypeMapping TypeName="BlogModel.Author">
+              <MappingFragment StoreEntitySet="Author">
+                <ScalarProperty Name="author_id" ColumnName="author_id" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="role_id" ColumnName="role_id" />
+                <ScalarProperty Name="islock" ColumnName="islock" />
+                <ScalarProperty Name="email" ColumnName="email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Blog_Tags">
+            <EntityTypeMapping TypeName="BlogModel.Blog_Tags">
+              <MappingFragment StoreEntitySet="Blog_Tags">
+                <ScalarProperty Name="blog_tag_id" ColumnName="blog_tag_id" />
+                <ScalarProperty Name="tag_id" ColumnName="tag_id" />
+                <ScalarProperty Name="blog_id" ColumnName="blog_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Blogentries">
+            <EntityTypeMapping TypeName="BlogModel.Blogentries">
+              <MappingFragment StoreEntitySet="Blogentries">
+                <ScalarProperty Name="blog_id" ColumnName="blog_id" />
+                <ScalarProperty Name="author_id" ColumnName="author_id" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="allowcomment" ColumnName="allowcomment" />
+                <ScalarProperty Name="markprivate" ColumnName="markprivate" />
+                <ScalarProperty Name="body" ColumnName="body" />
+                <ScalarProperty Name="datecreated" ColumnName="datecreated" />
+                <ScalarProperty Name="datepublished" ColumnName="datepublished" />
+                <ScalarProperty Name="datemodified" ColumnName="datemodified" />
+                <ScalarProperty Name="islock" ColumnName="islock" />
+                <ScalarProperty Name="blogtype_id" ColumnName="blogtype_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Blogtypes">
+            <EntityTypeMapping TypeName="BlogModel.Blogtypes">
+              <MappingFragment StoreEntitySet="Blogtypes">
+                <ScalarProperty Name="blogtype_id" ColumnName="blogtype_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="author_id" ColumnName="author_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Comments">
+            <EntityTypeMapping TypeName="BlogModel.Comments">
+              <MappingFragment StoreEntitySet="Comments">
+                <ScalarProperty Name="comment_id" ColumnName="comment_id" />
+                <ScalarProperty Name="author" ColumnName="author" />
+                <ScalarProperty Name="blog_id" ColumnName="blog_id" />
+                <ScalarProperty Name="ip" ColumnName="ip" />
+                <ScalarProperty Name="datecreated" ColumnName="datecreated" />
+                <ScalarProperty Name="datemodified" ColumnName="datemodified" />
+                <ScalarProperty Name="body" ColumnName="body" />
+                <ScalarProperty Name="islock" ColumnName="islock" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Files">
+            <EntityTypeMapping TypeName="BlogModel.Files">
+              <MappingFragment StoreEntitySet="Files">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="filename" ColumnName="filename" />
+                <ScalarProperty Name="mime" ColumnName="mime" />
+                <ScalarProperty Name="filecontent" ColumnName="filecontent" />
+                <ScalarProperty Name="author_id" ColumnName="author_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Logs">
+            <EntityTypeMapping TypeName="BlogModel.Logs">
+              <MappingFragment StoreEntitySet="Logs">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="author_id" ColumnName="author_id" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="operatevent" ColumnName="operatevent" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Model">
+            <EntityTypeMapping TypeName="BlogModel.Model">
+              <MappingFragment StoreEntitySet="Model">
+                <ScalarProperty Name="model_id" ColumnName="model_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="path" ColumnName="path" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Personsettings">
+            <EntityTypeMapping TypeName="BlogModel.Personsettings">
+              <MappingFragment StoreEntitySet="Personsettings">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="author_id" ColumnName="author_id" />
+                <ScalarProperty Name="blog_title" ColumnName="blog_title" />
+                <ScalarProperty Name="model_id" ColumnName="model_id" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="blog_path" ColumnName="blog_path" />
+                <ScalarProperty Name="rss_size" ColumnName="rss_size" />
+                <ScalarProperty Name="max_uploadfile" ColumnName="max_uploadfile" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Role">
+            <EntityTypeMapping TypeName="BlogModel.Role">
+              <MappingFragment StoreEntitySet="Role">
+                <ScalarProperty Name="role_id" ColumnName="role_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="BlogModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tags">
+            <EntityTypeMapping TypeName="BlogModel.Tags">
+              <MappingFragment StoreEntitySet="Tags">
+                <ScalarProperty Name="tag_id" ColumnName="tag_id" />
+                <ScalarProperty Name="tagName" ColumnName="tagName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

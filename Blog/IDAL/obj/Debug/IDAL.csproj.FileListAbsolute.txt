@@ -1,0 +1,7 @@
+E:\ASP.NET\Blog\Blog\IDAL\bin\Debug\Blog.IDAL.dll
+E:\ASP.NET\Blog\Blog\IDAL\bin\Debug\Blog.IDAL.pdb
+E:\ASP.NET\Blog\Blog\IDAL\bin\Debug\Blog.Modle.dll
+E:\ASP.NET\Blog\Blog\IDAL\bin\Debug\Blog.Modle.pdb
+E:\ASP.NET\Blog\Blog\IDAL\obj\Debug\IDAL.csprojResolveAssemblyReference.cache
+E:\ASP.NET\Blog\Blog\IDAL\obj\Debug\Blog.IDAL.dll
+E:\ASP.NET\Blog\Blog\IDAL\obj\Debug\Blog.IDAL.pdb

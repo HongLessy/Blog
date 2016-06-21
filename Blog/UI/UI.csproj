@@ -42,7 +42,10 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -108,7 +111,58 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Code\MenuHelp.cs" />
+    <Compile Include="Author.cs">
+      <DependentUpon>Blog.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Blog.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Blog.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Blogentries.cs">
+      <DependentUpon>Blog.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Blogtypes.cs">
+      <DependentUpon>Blog.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Blog_Tags.cs">
+      <DependentUpon>Blog.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Comments.cs">
+      <DependentUpon>Blog.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Files.cs">
+      <DependentUpon>Blog.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Logs.cs">
+      <DependentUpon>Blog.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model.cs">
+      <DependentUpon>Blog.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Personsettings.cs">
+      <DependentUpon>Blog.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Role.cs">
+      <DependentUpon>Blog.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagrams.cs">
+      <DependentUpon>Blog.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Tags.cs">
+      <DependentUpon>Blog.tt</DependentUpon>
+    </Compile>
+    <Content Include="App_Bin\MenuHelp.cs" />
+    <Compile Include="Blog.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Blog.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Blog.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Blog.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -153,7 +207,7 @@
     <Content Include="Views\Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Bin\" />
+    <Folder Include="App_Code\" />
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
   </ItemGroup>
@@ -184,6 +238,30 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Share\Admin.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="Blog.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Blog.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Blog.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Blog.edmx</DependentUpon>
+      <LastGenOutput>Blog.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Blog.edmx.diagram">
+      <DependentUpon>Blog.edmx</DependentUpon>
+    </Content>
+    <Content Include="Blog.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Blog.edmx</DependentUpon>
+      <LastGenOutput>Blog.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
